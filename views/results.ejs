@@ -1,0 +1,48 @@
+<%- include('partials/header') %>
+
+<div class="container mx-auto max-w-7xl px-6 py-12">
+    <div class="mb-10">
+        <h2 class="text-4xl font-serif font-bold mb-2 text-white">Recipe Suggestions</h2>
+        <% if (locals.error) { %>
+            <p class="text-red-400 bg-red-900/50 p-4 rounded-md mt-4"><%= error %></p>
+        <% } else { %>
+            <p class="text-gray-300 text-lg">Based on your ingredients: <span class="font-semibold text-accent"><%= query %></span></p>
+        <% } %>
+    </div>
+
+    <% if (recipes && recipes.length > 0) { %>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <% recipes.forEach(recipe => { %>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/20 border border-transparent hover:border-accent">
+                    <div class="overflow-hidden h-48">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="<%= recipe.imageUrl %>" alt="<%= recipe.title %>">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif font-bold mb-2 text-white"><%= recipe.title %></h3>
+                        <p class="text-sm text-gray-400 mb-4 h-10"><%= recipe.description.substring(0, 70) %>...</p>
+                        <div class="flex justify-between items-center text-sm font-semibold mb-4">
+                            <span class="bg-green-900/50 text-green-300 px-3 py-1 rounded-full"><%= recipe.cookingTime %> mins</span>
+                            <span class="bg-orange-900/50 text-orange-300 px-3 py-1 rounded-full"><%= recipe.difficulty %></span>
+                        </div>
+                        <div class="bg-gray-900/50 p-3 rounded-md text-center">
+                            <p class="text-sm font-bold text-gray-200">
+                                Ingredient Match: 
+                                <span class="text-accent text-base"><%= recipe.matchCount %> / <%= recipe.ingredients.length %></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    <% } else if (!locals.error) { %>
+        <div class="text-center py-16 px-6 bg-gray-800 rounded-lg shadow-lg">
+            <h3 class="text-3xl font-serif font-semibold text-white">No Recipes Found</h3>
+            <p class="text-gray-400 mt-4 max-w-md mx-auto">We couldn't find any recipes with those ingredients. Try adding more items or uploading a different photo!</p>
+            <a href="/" class="mt-8 inline-block bg-accent text-white font-semibold py-3 px-6 rounded-md hover:bg-amber-600 transition-colors transform hover:scale-105">
+                Try Again
+            </a>
+        </div>
+    <% } %>
+</div>
+
+<%- include('partials/footer') %>

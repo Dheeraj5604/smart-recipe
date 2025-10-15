@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Recipe Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Lato', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'accent': '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans">
+    
+    <header class="bg-gray-900/70 backdrop-blur-sm shadow-lg sticky top-0 z-10">
+        <nav class="container mx-auto px-6 py-4">
+            <a href="/" class="text-3xl font-serif font-bold text-white hover:text-accent transition-colors">
+                🍳 Smart Recipe Generator
+            </a>
+        </nav>
+    </header>
+    <main class="relative">

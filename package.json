@@ -1,0 +1,29 @@
+{
+  "name": "smart-recipe-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "seed": "node seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@google-cloud/vision": "^5.3.3",
+    "@google/generative-ai": "^0.24.1",
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.12.2",
+    "clarifai-nodejs-grpc": "^11.9.0",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.1",
+    "multer": "^2.0.2",
+    "nodemon": "^3.1.10"
+  }
+}
